@@ -22,7 +22,7 @@ class User extends BaseModel
         $sql = "SELECT * FROM user WHERE login = ? LIMIT 1";
         $statement = $this->getDB()->prepare($sql);
         $statement->execute([$login]);
-        return $statement->fetch(PDO::FETCH_ASSOC) ?? null;
+        return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -119,7 +119,7 @@ class User extends BaseModel
      */
     public function getLoginErrors()
     {
-        return $_SESSION['loginErrors'] ?? null;
+        return !empty($_SESSION['loginErrors']) ? $_SESSION['loginErrors'] : '';
     }
 }
 

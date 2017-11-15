@@ -13,16 +13,9 @@
 
       <h1>Авторизация</h1>
 
-      {# <?php
-              /**
-               * Выводим ошибки при их наличии
-               */
-              if (!empty($user->getLoginErrors())) {
-      foreach ($user->getLoginErrors() as $error) {
-      echo "<p>$error</p>";
-      }
-      }
-      ?>#}
+      {% for error in login_errors %}
+        <p>{{ error }}</p>
+      {% endfor %}
 
       <form class="form" method="POST" id="login-form">
         <div class="form-group">

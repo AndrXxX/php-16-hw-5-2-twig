@@ -20,9 +20,7 @@ require_once 'lib/functions.php';
 require_once "vendor/autoload.php";
 
 
-$pathList = preg_split('/\//', $_SERVER['REQUEST_URI'], -1, PREG_SPLIT_NO_EMPTY);
-array_shift($pathList);
-array_shift($pathList);
+$pathList = preg_split('/\//', $_SERVER['QUERY_STRING'], -1, PREG_SPLIT_NO_EMPTY);
 
 // Значения по умолчанию
 if (empty($_SESSION['user'])) {

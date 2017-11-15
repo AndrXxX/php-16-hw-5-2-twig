@@ -16,7 +16,7 @@ function isPost()
  */
 function getParam($name)
 {
-    return $_REQUEST[$name] ?? null;
+    return !empty($_REQUEST[$name]) ? $_REQUEST[$name] : '';
 }
 
 /**

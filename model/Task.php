@@ -51,7 +51,7 @@ class Task extends BaseModel
      */
     public function getSortType()
     {
-        return $_SESSION['sort'] ?? 'date_added';
+        return !empty($_SESSION['sort']) ? $_SESSION['sort'] : 'date_added';
     }
 
     /**
@@ -71,9 +71,9 @@ class Task extends BaseModel
     public function getCurrentUser($param = null)
     {
         if (isset($param)) {
-            return $this->user[$param] ?? null;
+            return isset($this->user[$param]) ? $this->user[$param] : null;
         }
-        return $this->user ?? null;
+        return isset($this->user) ? $this->user : null;
     }
 
     /**
